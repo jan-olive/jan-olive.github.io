@@ -29,7 +29,7 @@ html, body {
   min-width: 110%; 
   transform: translate(-50%, -50%); 
   object-fit: cover; 
-  filter: blur(12px);
+  filter: blur(8px);
 }
 
 .windows {
@@ -40,9 +40,12 @@ html, body {
     width: 50vw;
     height: calc(50vw * 3 / 4);
     padding: 0px;
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(255, 255, 255, 0.01);
+    filter: blur(0.5px);
     border-radius: 4% / 6%;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(15px); 
+     -webkit-backdrop-filter: blur(15px);
 }
 
 .title-bar {
@@ -50,7 +53,7 @@ html, body {
     align-items: center;
     justify-content: space-between;
     padding: 10px;
-    background-color: #0078D4;
+    background-color: #0078d444;
     color: white;
     font-size: 120%;
 }
