@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>b2xpdmu.exe</title>
@@ -8,17 +9,97 @@
     <link rel="stylesheet" href="style.css">
     
 </head>
+
 <body>
+
     <div class="background"><img src="assets/bg.jpg" alt=""></div>
     <div class="windows">
-        <div class="title-bar">
-            <span class="title">b2xpdmu.exe</span>
-            <div class="window-controls">
-                <span class="minimize">—</span>
-                <span class="maximize">☐</span>
-                <span class="close">✕</span>
-            </div> <!-- Window controls -->
-        </div> <!-- Title bar -->
+    <div class="title-bar">
+      <img src="assets/logo.png" alt="logo" />
+      <span class="title">b2xpdmu.exe</span>
+      <div class="window-controls">
+        <span class="minimize">—</span>
+        <span class="maximize">☐</span>
+        <span class="close">✕</span>
+      </div>
     </div>
+<div class="main">
+    <div class="sidebar">
+    <div class="menu">
+      <ul>
+        <li data-panel="about" class="active">
+          <span class="icon">
+            <img src="assets/about.svg" alt="i">
+          </span>
+          <span>About</span>
+        </li>
+        <li data-panel="projects" class="active">
+          <span class="icon">
+            <img src="assets/projects.svg" alt="">
+          </span>
+          <span>Projects</span>
+        </li>
+        <li data-panel="contact" class="active">
+          <span class="icon">
+            <img src="assets/contacts.svg" alt="">
+          </span>
+          <span>Contact</span>
+        </li>
+        <li data-panel="notes" class="active">
+          <span class="icon">
+            <img src="assets/notes.svg" alt="">
+          </span>
+          <span>Notes</span>
+        </li>
+        <li data-panel="links" class="active">
+          <span class="icon">
+            <img src="assets/links.svg" alt="">
+          </span>
+          <span>Links</span>
+        </li>
+      </ul>
+    </div>
+    </div>
+    <div class="content">
+      <section id="about" class="pactive">
+        <h2>About Me</h2>
+        <p>placeholder text about</p>
+      </section>
+        <section id="projects" class="pactive">
+            <h2>Projects</h2>
+            <p>placeholder text about projects</p>
+        </section>
+        <section id="contact" class="pactive">
+            <h2>Contact</h2>
+            <p>placeholder text about contact</p>
+        </section>
+        <section id="notes" class="pactive">
+            <h2>Notes</h2>
+            <p>placeholder text about notes</p>
+        </section>
+        <section id="links" class="pactive">
+            <h2>Links</h2>
+            <p>placeholder text about links</p>
+        </section>
+    </div>
+</div>
+
+    <script>
+const menuItems = document.querySelectorAll('.menu ul li');
+const panels = document.querySelectorAll('.pactive');
+menuItems[0].classList.add('active');
+panels[0].classList.add('pactive'); 
+menuItems.forEach(item => {
+  item.addEventListener('click', () => {
+    menuItems.forEach(i => i.classList.remove('active'));
+    panels.forEach(panel => panel.classList.remove('pactive'));
+    item.classList.add('active');
+    const panelId = item.getAttribute('data-panel');
+    document.getElementById(panelId).classList.add('pactive');
+  });
+});
+
+    </script>
+
 </body>
 </html>
