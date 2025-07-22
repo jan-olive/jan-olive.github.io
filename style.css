@@ -4,6 +4,11 @@
     box-sizing: border-box;
 }
 
+a {
+    color:white;
+    text-decoration: none;
+}
+
 html, body {
     height: 100vh;
     width: 100%;
@@ -58,10 +63,10 @@ html, body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px;
+    padding: 4px;
     background-color: #0078d444;
     color: white;
-    font-size: 120%;
+    font-size: 100%;
    border-top-left-radius: 0;
    border-top-right-radius: 0;
    background-color: #0078d444;
@@ -69,25 +74,11 @@ html, body {
    -webkit-backdrop-filter: inherit;
 }
 
-.title-bar span.title {
-    font-size: 120%;
-}
-
 .title-bar img {
-    width: 2.2em;
-    height: 2.2em;
+    width: 2.5em;
+    height: 2.5em;
     margin-right: 0.5em;
 }
-
-.title-bar .title {
-  flex-grow: 1;
-  color: white;
-  font-weight: 500;
-  font-family: 'Cabin', sans-serif;
-  cursor: pointer;
-  transform-origin: left center;
-}
-
 
 .title-bar img:hover {
   transform: scale(1.2);
@@ -98,6 +89,7 @@ html, body {
 .window-controls {
     display: flex;
     gap: 1em;
+    margin-right: 0.5em; /* adjust value to move left */
 }
 
 .window-controls span {
@@ -106,11 +98,13 @@ html, body {
   justify-content: center;
   width: 1.5em;
   height: 1.5em;
-  font-size: 120%;
+  font-size: 100%;
   border-radius: 0px;
   color: white;
   cursor: pointer;
   transition: background 0.2s ease;
+ 
+
 }
 
 .window-controls span:hover {
@@ -199,4 +193,58 @@ section {
 .main {
   display: flex;
   flex: 1;
+}
+
+.content section {
+  display: none;
+}
+
+.content section.pactive {
+  display: block;
+}
+
+
+#about ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border: 1px solid;
+  border-image: linear-gradient(to right, rgba(255, 255,255, 0.5), rgba(255, 255, 255, 0)) 1;
+  padding: 10px;
+} 
+
+#projects ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border: 1px solid;
+  border-image: linear-gradient(to right, rgba(255, 255,255, 0.5), rgba(255, 255, 255, 0)) 1;
+  padding: 10px;
+} 
+
+#contact ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border: 1px solid;
+  border-image: linear-gradient(to right, rgba(255, 255,255, 0.5), rgba(255, 255, 255, 0)) 1;
+  padding: 10px;
+}
+
+#notes ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border: 1px solid;
+  border-image: linear-gradient(to right, rgba(255, 255,255, 0.5), rgba(255, 255, 255, 0)) 1;
+  padding: 10px;
+}
+
+#links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border: 1px solid;
+  border-image: linear-gradient(to right, rgba(255, 255,255, 0.5), rgba(255, 255, 255, 0)) 1;
+  padding: 10px;
 }

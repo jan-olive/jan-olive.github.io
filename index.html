@@ -4,7 +4,7 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>b2xpdmu.exe</title>
+    <title>b2xpdmu</title>
     <link href="https://fonts.googleapis.com/css2?family=Cabin&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="style.css">
     
@@ -16,7 +16,7 @@
     <div class="windows">
     <div class="title-bar">
       <img src="assets/logo.png" alt="logo" />
-      <span class="title">b2xpdmu.exe</span>
+      <span class="title"></span>
       <div class="window-controls">
         <span class="minimize">—</span>
         <span class="maximize">☐</span>
@@ -33,25 +33,25 @@
           </span>
           <span>About</span>
         </li>
-        <li data-panel="projects" class="active">
+        <li data-panel="projects">
           <span class="icon">
             <img src="assets/projects.svg" alt="">
           </span>
           <span>Projects</span>
         </li>
-        <li data-panel="contact" class="active">
+        <li data-panel="contact">
           <span class="icon">
             <img src="assets/contacts.svg" alt="">
           </span>
-          <span>Contact</span>
+          <span>Contacts</span>
         </li>
-        <li data-panel="notes" class="active">
+        <li data-panel="notes">
           <span class="icon">
             <img src="assets/notes.svg" alt="">
           </span>
           <span>Notes</span>
         </li>
-        <li data-panel="links" class="active">
+        <li data-panel="links">
           <span class="icon">
             <img src="assets/links.svg" alt="">
           </span>
@@ -62,44 +62,63 @@
     </div>
     <div class="content">
       <section id="about" class="pactive">
-        <h2>About Me</h2>
-        <p>placeholder text about</p>
+        <h1>Oliver Huang</h1>
+        <p><i>Professional Idiot</i></p>
+        <br>
+        <ul>
+            <li>• Age: 13</li>
+            <li>• Canadaian, Utc-7</li>
+            <li>• Langages: English, Mandarin, toki pona </li>
+            <li>• Hobbies: Math, Clarinet, Creation, Cubing</li>
+            <li>• Skills: Webdev, Python, Cad, Visual Design</li>
+        </ul>
+        <ul>
+            <li>• vatsim id: 1777776</li>
+            <li>• github: <a href="https://github.com/jan-olive">jan-olive</a></li>
+            <li>• wca id: <a href="https://www.worldcubeassociation.org/persons/2022HUAN47/">2022HUAN47</a></li>
+            <li>• monkeytype: <a href="https://monkeytype.com/profile/OHRLI">OHRLI</a></li>
+            <li>• genshin uid: 656796764</li>
+        </ul>
       </section>
-        <section id="projects" class="pactive">
+        <section id="projects">
             <h2>Projects</h2>
-            <p>placeholder text about projects</p>
+            <p>Projects will be updated in Q4 2025 CE !</p>
         </section>
-        <section id="contact" class="pactive">
-            <h2>Contact</h2>
-            <p>placeholder text about contact</p>
+        <section id="contact">
+            <h2>Contacts</h2>
+            <br>
+            <ul>
+                <li>• email: <a href="mailto:ohrliproductions@gmail.com">ohrliproductions@gmail.com</a></li>
+                <li>• discord: <a href=https://discord.com/users/835015572843790457>b2xpdmu (835015572843790457)</a></li>
         </section>
-        <section id="notes" class="pactive">
+        <section id="notes">
             <h2>Notes</h2>
-            <p>placeholder text about notes</p>
+            <p>Notes will be updated in Q4 2025 CE !</p>
         </section>
-        <section id="links" class="pactive">
+        <section id="links">
             <h2>Links</h2>
-            <p>placeholder text about links</p>
+            <p>Links will be updated in Q4 2025 CE !</p>
         </section>
     </div>
 </div>
 
-    <script>
-const menuItems = document.querySelectorAll('.menu ul li');
-const panels = document.querySelectorAll('.pactive');
-menuItems[0].classList.add('active');
-panels[0].classList.add('pactive'); 
-menuItems.forEach(item => {
-  item.addEventListener('click', () => {
-    menuItems.forEach(i => i.classList.remove('active'));
-    panels.forEach(panel => panel.classList.remove('pactive'));
-    item.classList.add('active');
-    const panelId = item.getAttribute('data-panel');
-    document.getElementById(panelId).classList.add('pactive');
+<script>
+  const menuItems = document.querySelectorAll('.menu ul li');
+  const panels = document.querySelectorAll('.content section');
+  menuItems.forEach(item => {
+    item.addEventListener('click', () => {
+      menuItems.forEach(i => i.classList.remove('active'));
+      item.classList.add('active');
+      panels.forEach(panel => panel.classList.remove('pactive'));
+      const panelId = item.getAttribute('data-panel');
+      const panelToShow = document.getElementById(panelId);
+      if (panelToShow) {
+        panelToShow.classList.add('pactive');
+      }
+    });
   });
-});
+</script>
 
-    </script>
 
 </body>
 </html>
