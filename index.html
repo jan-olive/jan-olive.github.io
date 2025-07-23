@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>b2xpdmu</title>
+    <title>janolive</title>
     <link href="https://fonts.googleapis.com/css2?family=Cabin&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="style.css">
 </head>
@@ -14,7 +14,7 @@
     <div class="background"><img src="assets/bg.jpg" alt=""></div>
     <div class="windows">
     <div class="title-bar">
-      <img src="assets/logo.png" alt="logo" />
+      <img src="assets/logo.png" alt="logo" class="logo-toggle" />
       <span class="title"></span>
       <div class="window-controls">
         <span class="minimize">—</span>
@@ -65,21 +65,20 @@
         <p><i>Professional Idiot</i></p>
         <br>
         <ul>
-            <li>• Age: 13</li>
-            <li>• Canadian, UTC-7</li>
-            <li>• Langages: English, Mandarin, Toki Pona </li>
-            <li>• Hobbies: Math, Clarinet, Creation, Cubing</li>
-            <li>• Skills: Webdev, Python, CAD, Visual Design</li>
+            <li><pre>•  Age: 13</pre></li>
+            <li><pre>•  Canadian, UTC-7</pre></li>
+            <li><pre>•  Langages: English, Mandarin, Toki Pona </pre></li>
+            <li><pre>•  Hobbies: Math, Clarinet, Creation, Cubing</pre></li>
+            <li><pre>•  Skills: Webdev, Python, CAD, Visual Design</pre></li>
         </ul>
-        <ul>
-            <li>• VATSIM ID: 1777776</li>
-            <li>• GitHub: <a href="https://github.com/jan-olive">jan-olive</a></li>
-            <li>• WCA ID: <a href="https://www.worldcubeassociation.org/persons/2022HUAN47/">2022HUAN47</a></li>
-            <li>• monkeytype: <a href="https://monkeytype.com/profile/OHRLI">OHRLI</a></li>
-            <li>• Genshin UID: 656796764</li>
+        <ul id="secondb">
+            <li><pre>•  VATSIM ID: 1777776</pre></li>
+            <li><pre>•  WCA ID: <a href="https://www.worldcubeassociation.org/persons/2022HUAN47/" target="_blank">2022HUAN47</pre></a></li>
+            <li><pre>•  Monkeytype: <a href="https://monkeytype.com/profile/OHRLI" target="_blank">OHRLI</a></pre></li>
+            <li><pre>•  Genshin UID: 656796764</pre></li>
         </ul>
         <br>
-        <p>Hello, I am Oliver Huang, a 13-year-old Canadian (UTC-7) tinkerer and maker who spends a lot of time doing computer-related stuff like Python and web development. I enjoy creating intriguing new projects, experimenting with great interface ideas, and occasionally dabbling in games, music, math, and speedcubing. I like taking on new challenges, occasionally failing, but always growing, whether it is learning spoken or digital languages, crafting CAD designs, or figuring out how to streamline my very clumsy workflow.</p>
+        <p>Hello, I am Oliver Huang, a 13-year-old Canadian tinkerer and maker who spends a lot of time doing computer-related stuff like Python and web development. I enjoy creating intriguing new projects, experimenting with great interface ideas, and occasionally dabbling in games, music, math, and speedcubing. I like taking on new challenges, occasionally failing, but always growing, whether it is learning spoken or digital languages, crafting CAD designs, or figuring out how to streamline my very clumsy workflow.</p>
         <br>
         <p>Feel free to contact me !</p>
         <br>
@@ -89,22 +88,24 @@
       </section>
         <section id="projects">
             <h2>Projects</h2>
-            <p>Projects will be updated in Q4 2025 CE !</p>
+            <p>Projects will be updated very soon !</p>
         </section>
         <section id="contact">
             <h2>Contacts</h2>
+            <p><i>Use any of the below to contact me:</i></p>
             <br>
             <ul>
-                <li>• email: <a href="mailto:ohrliproductions@gmail.com">ohrliproductions@gmail.com</a></li>
-                <li>• discord: <a href=https://discord.com/users/835015572843790457>b2xpdmu (835015572843790457)</a></li>
+                <li><img src="assets/email.svg"> email: <a href="mailto:ohrliproductions@gmail.com" target="_blank">ohrliproductions@gmail.com</a></li>
+                <li><img src="assets/diskordd.svg"> discord: <a href=https://discord.com/users/835015572843790457 target="_blank">b2xpdmu (835015572843790457)</a></li>
+            </ul>
         </section>
         <section id="notes">
             <h2>Notes</h2>
-            <p>Notes will be updated in Q4 2025 CE !</p>
+            <p>Notes will be updated soon !</p>
         </section>
         <section id="links">
             <h2>Links</h2>
-            <p>Links will be updated in Q4 2025 CE !</p>
+            <p>Links will be updated soon !</p>
         </section>
     </div>
 </div>
@@ -137,6 +138,22 @@
   }
   window.addEventListener('DOMContentLoaded', checkScrollbar);
   window.addEventListener('resize', checkScrollbar);
+
+  document.querySelector('.logo-toggle')?.addEventListener('click', () => {
+    document.querySelector('.sidebar')?.classList.toggle('collapsed');
+
+    const logo = document.querySelector('.logo-toggle');
+    const sidebar = document.querySelector('.sidebar');
+
+if (localStorage.getItem('sidebar-collapsed') === 'true') {
+  sidebar.classList.add('collapsed');
+}
+
+logo.addEventListener('click', () => {
+  sidebar.classList.toggle('collapsed');
+  localStorage.setItem('sidebar-collapsed', sidebar.classList.contains('collapsed'));
+});
+  });
 </script>
 
 </body>
