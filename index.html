@@ -130,15 +130,12 @@
     const windows = document.querySelector('.windows');
     const content = document.querySelector('.content');
     if (!windows || !content) return;
-    // Check if content is overflowing vertically
     if (content.scrollHeight > content.clientHeight) {
       windows.classList.add('has-scrollbar');
     } else {
       windows.classList.remove('has-scrollbar');
     }
   }
-
-  // Initial check on page load and after window resize
   window.addEventListener('DOMContentLoaded', checkScrollbar);
   window.addEventListener('resize', checkScrollbar);
 </script>
