@@ -81,6 +81,19 @@ html, body {
     display: flex;
     flex-direction: column;
     transition: border-radius 0.2s ease;
+    transition: width 0.2s ease, height 0.2s ease;
+}
+
+.windows.maximized {
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    transform: none;
+    border-radius: 0;
+    max-width: none;
+    max-height: none;
+    transition: all 0.2s ease;
 }
 
 .windows.has-scrollbar {
@@ -106,6 +119,14 @@ html, body {
     width: 2.5em;
     height: 2.5em;
     margin-right: 0.5em;
+}
+
+.title-bar button{
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 1em;
 }
 
 .title-bar img:hover {
@@ -306,7 +327,7 @@ section {
   border: none;
   font-size: 2em;
   cursor: pointer;
-  color: rgba(255, 255, 255, 0.15);
+  color: rgba(255, 255, 255, 0.5);
   transition: color 0.2s;
 }
 
@@ -402,7 +423,7 @@ section {
   border: none;
   font-size: 2em;
   cursor: pointer;
-  color: rgba(255, 255, 255, 0.15);
+  color: rgba(255, 255, 255, 0.5);
   transition: color 0.2s;
 }
 

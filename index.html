@@ -18,7 +18,7 @@
       <span class="title"></span>
       <div class="window-controls">
         <span class="minimize">—</span>
-        <span class="maximize">☐</span>
+        <span class="maximize"><button>☐</button></span>
         <span class="close">✕</span>
       </div>
     </div>
@@ -283,6 +283,15 @@ document.addEventListener('DOMContentLoaded', () => {
     updateProjects();
     showNote(currentNote);
   });
+// ----- Window Controls -----
+  const maximizeBtn = document.querySelector('.maximize');
+const windowEl = document.querySelector('.windows');
+
+maximizeBtn?.addEventListener('click', () => {
+  const isMaximized = windowEl.classList.toggle('maximized');
+  maximizeBtn.textContent = isMaximized ? '🗗' : '☐';
+  }
+);
 </script>
 
 </body>
