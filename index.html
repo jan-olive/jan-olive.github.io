@@ -60,6 +60,10 @@
     </div>
     </div>
     <div class="content">
+
+
+
+
       <section id="about" class="pactive">
         <h1>Oliver Huang</h1>
         <p><i>Professional Idiot</i></p>
@@ -86,10 +90,44 @@
         <p id="toki">jasima lete</p>
         <p><i>jasima lete</i></p>
       </section>
+
+
+
+
         <section id="projects">
-            <h2>Projects</h2>
-            <p>Projects will be updated very soon !</p>
+            <div class="project-container">
+
+              <div class="projectid"><i>project 1</i></div>
+              <button class="projectleft" onclick="scrollProjects(-1)">❮</button>
+
+                  <div class="project" >
+                    <h1>Project 1</h1>
+                     <p>placeholder 1</p>
+                  </div>
+
+                 <div class="project">
+                   <h1>Project 2</h1>
+                   <p>placeholder 2</p>
+                 </div>
+
+                 <div class="project">
+                   <h1>Project 3</h1>
+                   <p>placeholder 3</p>
+                 </div>
+                 
+                 <div class="project">
+                   <h1>Project 4</h1>
+                   <p>placeholder 4</p>
+                 </div>
+
+
+              <button class="projectright" onclick="scrollProjects(1)">❯</button>
+            </div>
         </section>
+
+
+
+
         <section id="contact">
             <h2>Contacts</h2>
             <p><i>Use any of the below to contact me:</i></p>
@@ -99,20 +137,56 @@
                 <li><img src="assets/diskordd.svg"> discord: <a href=https://discord.com/users/835015572843790457 target="_blank">b2xpdmu (835015572843790457)</a></li>
             </ul>
         </section>
+
+
+
+
         <section id="notes">
-            <h2>Notes</h2>
-            <p>Notes will be updated soon !</p>
+            <div class="notes-container">
+              <div class="notesid"><i>project 1</i></div>
+              <button class="notesleft" onclick="scrollNotes(-1)">❮</button>
+
+                  <div class="notes" >
+                    <h1>Note 1</h1>
+                     <p>placeholder 1</p>
+                  </div>
+
+                 <div class="notes">
+                   <h1>Note 2</h1>
+                   <p>placeholder 2</p>
+                 </div>
+
+                 <div class="notes">
+                   <h1>Note 3</h1>
+                   <p>placeholder 3</p>
+                 </div>
+
+              <button class="notesright" onclick="scrollNotes(1)">❯</button>
+            </div>
         </section>
+
+
+
+
         <section id="links">
             <h2>Links</h2>
-            <p>Links will be updated soon !</p>
+            <p>Pinned project and note likes will be here !</p>
         </section>
+
+
+
+
     </div>
 </div>
+
+
+
+
 
 <script>
   const menuItems = document.querySelectorAll('.menu ul li');
   const panels = document.querySelectorAll('.content section');
+
   menuItems.forEach(item => {
     item.addEventListener('click', () => {
       menuItems.forEach(i => i.classList.remove('active'));
@@ -126,6 +200,7 @@
       checkScrollbar();
     });
   });
+
   function checkScrollbar() {
     const windows = document.querySelector('.windows');
     const content = document.querySelector('.content');
@@ -136,23 +211,77 @@
       windows.classList.remove('has-scrollbar');
     }
   }
+
   window.addEventListener('DOMContentLoaded', checkScrollbar);
   window.addEventListener('resize', checkScrollbar);
 
+  // Sidebar toggle logic
   document.querySelector('.logo-toggle')?.addEventListener('click', () => {
-    document.querySelector('.sidebar')?.classList.toggle('collapsed');
-
-    const logo = document.querySelector('.logo-toggle');
     const sidebar = document.querySelector('.sidebar');
+    sidebar.classList.toggle('collapsed');
+    localStorage.setItem('sidebar-collapsed', sidebar.classList.contains('collapsed'));
+  });
 
-if (localStorage.getItem('sidebar-collapsed') === 'true') {
-  sidebar.classList.add('collapsed');
+  if (localStorage.getItem('sidebar-collapsed') === 'true') {
+    document.querySelector('.sidebar')?.classList.add('collapsed');
+  }
+
+  // ----- Projects Logic -----
+  let currentProject = 0;
+  const projects = document.querySelectorAll('.project');
+  const projectId = document.querySelector('.projectid');
+
+  function updateProjects() {
+    projects.forEach((project, i) => {
+      project.classList.toggle('active', i === currentProject);
+    });
+    projectId.textContent = `${currentProject + 1} / ${projects.length}`;
+  }
+
+  function scrollProjects(direction) {
+    currentProject = (currentProject + direction + projects.length) % projects.length;
+    updateProjects();
+  }
+
+// ----- Notes Logic -----
+let currentNote = 0;
+const notes = document.querySelectorAll('#notes .notes');
+const notesId = document.querySelector('.notesid');
+
+function updateNotes() {
+  notes.forEach((note, i) => {
+    note.classList.toggle('active', i === currentNote);
+  });
+  notesId.textContent = `${currentNote + 1} / ${notes.length}`;
 }
 
-logo.addEventListener('click', () => {
-  sidebar.classList.toggle('collapsed');
-  localStorage.setItem('sidebar-collapsed', sidebar.classList.contains('collapsed'));
+function scrollNotes(direction) {
+  currentNote = (currentNote + direction + notes.length) % notes.length;
+  updateNotes();
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  updateProjects(); 
+  updateNotes();    
 });
+
+  // ----- Keyboard Handling -----
+  window.addEventListener('keydown', (event) => {
+    const projectsSection = document.getElementById('projects');
+    const notesSection = document.getElementById('notes');
+
+    if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+      if (projectsSection.classList.contains('pactive')) {
+        scrollProjects(event.key === 'ArrowLeft' ? -1 : 1);
+      } else if (notesSection.classList.contains('pactive')) {
+        scrollNotes(event.key === 'ArrowLeft' ? -1 : 1);
+      }
+    }
+  });
+
+  document.addEventListener('DOMContentLoaded', () => {
+    updateProjects();
+    showNote(currentNote);
   });
 </script>
 
