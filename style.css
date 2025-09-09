@@ -73,7 +73,6 @@ html, body {
     padding: 0px;
     background-color: rgba(255, 255, 255, 0.01);
     filter: blur(0.5px);
-    border-radius: 0 0 4% 4%;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     backdrop-filter: blur(15px); 
     -webkit-backdrop-filter: blur(15px);
@@ -82,6 +81,7 @@ html, body {
     flex-direction: column;
     transition: border-radius 0.2s ease;
     transition: width 0.2s ease, height 0.2s ease;
+    border-radius: 0px 0px 4% 4%;
 }
 
 .windows.maximized {
@@ -113,6 +113,28 @@ html, body {
    background-color: #0078d444;
    backdrop-filter: inherit;
    -webkit-backdrop-filter: inherit;
+}
+
+.a {
+  position: relative;
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 1px;
+  width: 0;
+  background-color: #fff;
+  transition: width 0.3s ease;
+}
+
+.a:hover::after {
+  width: 100%;
 }
 
 .title-bar img {
