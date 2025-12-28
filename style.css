@@ -189,7 +189,7 @@ html, body {
 
 .menu ul {
     list-style: none;
-    padding: 0;
+    padding: 0;           
     margin: 0;
 }
 
@@ -386,11 +386,23 @@ section {
 
 }
 
+#projects h1 {
+  border-bottom: 1px solid;
+  border-image: linear-gradient(to right, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0)) 1;
+  padding-bottom: 0.6em;
+}
+
 .project {
   display: none;
 }
 .project.active {
   display: block;
+}
+
+.project img {
+  max-width: 100%;
+  height: auto;
+  margin-top: 1em;
 }
 
 #contact ul {
@@ -510,4 +522,6 @@ section {
   color: white;
 }
 
-
+.small {
+  font-size: 10pt
+}
